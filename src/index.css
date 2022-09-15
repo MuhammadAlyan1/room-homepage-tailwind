@@ -1,13 +1,19 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;600;700&display=swap');
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .navLink {
+    @apply relative mx-auto w-fit text-xl font-medium lowercase text-slate-200 transition duration-150  ease-in;
+  }
+
+  .navLink:hover {
+    @apply cursor-pointer before:opacity-100;
+  }
+
+  .navLink::before {
+    @apply pointer-events-none absolute -bottom-3 left-[50%] h-[3px] w-[60%] translate-x-[-50%] transform bg-current opacity-0 transition duration-150 ease-in content-[""];
+  }
 }
